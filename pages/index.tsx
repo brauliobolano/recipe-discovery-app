@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Card from '../components/Card/Card'
 import SearchBar from '../components/SearchBar/SearchBar';
+import { GetServerSideProps } from 'next';
 
 interface Recipe {
   id: string;
@@ -43,7 +44,7 @@ export default function Home({ initialRecipes } : HomeProps) {
   );
 }
 
-export async function getServerSideProps(context) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/recipes`);
   const initialRecipes = await res.json();
 
