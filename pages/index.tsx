@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import Card from '../components/Card/Card'
 import SearchBar from '../components/SearchBar/SearchBar';
-import recipes from '../recipesdbs';
 
-export default function Home() {
+export default function Home({ initialRecipes }) {
   const [search, setSearch] = useState('');
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const [filteredRecipes, setFilteredRecipes] = useState(initialRecipes);
 
   const runSearchFunction = () => {
-    const results = recipes.filter(recipe =>
+    const results = initialRecipes.filter(recipe =>
       recipe.name.toLowerCase().includes(search.toLowerCase()) ||
       recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(search.toLowerCase())) ||
-      recipe.cuisine.toLowerCase().includes(search.toLowerCase())
+      recipe.cuisine.toLowerCase().includes(search.toLowerCase()) || 
+      recipe.dietaryPreferences.some(dietaryPreference => dietaryPreference.toLowerCase().includes(search.toLowerCase()))
     );
     setFilteredRecipes(results);
     console.log('runSearchFunction for value of search: ', search);
@@ -28,4 +28,19 @@ export default function Home() {
       </div>
     </main>
   );
+}
+
+export async function getServerSideProps(context) {
+  const res = await fetch('http://localhost:3001/api/recipes');
+  const initialRecipes = await res.json();
+
+  if (!initialRecipes) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { initialRecipes }, // will be passed to the page component as props
+  }
 }
