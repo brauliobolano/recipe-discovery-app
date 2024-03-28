@@ -2,6 +2,19 @@ import { useState } from 'react';
 import Card from '../components/Card/Card'
 import SearchBar from '../components/SearchBar/SearchBar';
 
+interface Recipe {
+  id: string;
+  name: string;
+  ingredients: string[];
+  cuisine: string;
+  instructions: string;
+  dietaryPreferences: string[];
+}
+interface HomeProps {
+  initialRecipes: Recipe[];
+}
+
+
 export default function Home({ initialRecipes }) {
   const [search, setSearch] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState(initialRecipes);
