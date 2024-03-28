@@ -31,7 +31,7 @@ export default function Home({ initialRecipes }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch('http://localhost:3001/api/recipes');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/recipes`);
   const initialRecipes = await res.json();
 
   if (!initialRecipes) {
