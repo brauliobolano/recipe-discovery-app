@@ -15,7 +15,7 @@ interface HomeProps {
 }
 
 
-export default function Home({ initialRecipes }) {
+export default function Home({ initialRecipes } : HomeProps) {
   const [search, setSearch] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState(initialRecipes);
 
