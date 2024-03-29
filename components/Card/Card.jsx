@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Modal from '../Modal/Modal';
 
 const Card = ({ recipe }) => {
@@ -13,7 +12,6 @@ const Card = ({ recipe }) => {
           <div>
           <button onClick={openModal} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             <h1>Read more</h1>
-            <img className="mx-2" src="/read-era-svgrepo-com.svg" alt="Recipe Discovery" className="w-4 h-4" />
           </button>
           </div>
 
