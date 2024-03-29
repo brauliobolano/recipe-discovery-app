@@ -21,10 +21,20 @@ export default function Home({ initialRecipes } : HomeProps) {
   const [search, setSearch] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState(initialRecipes);
 
+  //Dietary preferences
   const [isGlutenFree, setIsGlutenFree] = useState(false);
   const [isNonDairy, setIsNonDairy] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [isVegetarian, setIsVegetarian] = useState(false);
+  //Cuisine
+  const [isCuban, setIsCuban] = useState(false);
+  const [isChinese, setIsChinese] = useState(false);
+  const [isItalian, setIsItalian] = useState(false);
+  const [isMexican, setIsMexican] = useState(false);
+  const [isIndian, setIsIndian] = useState(false);
+  
+
+
 
 
   const runSearchFunction = () => {
@@ -36,7 +46,12 @@ export default function Home({ initialRecipes } : HomeProps) {
     (isGlutenFree ? recipe.dietaryPreferences.includes('Gluten-free') : true) &&
     (isNonDairy ? recipe.dietaryPreferences.includes('Dairy-free') : true) &&
     (isVegan ? recipe.dietaryPreferences.includes('Vegan') : true) &&
-    (isVegetarian ? recipe.dietaryPreferences.includes('Vegetarian') : true)
+    (isVegetarian ? recipe.dietaryPreferences.includes('Vegetarian') : true) &&
+    (isCuban ? recipe.cuisine.includes('Cuban') : true) &&
+    (isChinese ? recipe.cuisine.includes('Chinese') : true) &&
+    (isItalian ? recipe.cuisine.includes('Italian') : true) &&
+    (isMexican ? recipe.cuisine.includes('Mexican') : true) &&
+    (isIndian ? recipe.cuisine.includes('Indian') : true)
     );
     setFilteredRecipes(results);
     console.log('runSearchFunction for value of search: ', search);
@@ -55,6 +70,17 @@ export default function Home({ initialRecipes } : HomeProps) {
         setIsVegan={setIsVegan}
         isVegetarian={isVegetarian}
         setIsVegetarian={setIsVegetarian}
+        isCuban={isCuban}
+        setIsCuban={setIsCuban}
+        isChinese={isChinese}
+        setIsChinese={setIsChinese}
+        isItalian={isItalian}
+        setIsItalian={setIsItalian}
+        isMexican={isMexican}
+        setIsMexican={setIsMexican}
+        isIndian={isIndian}
+        setIsIndian={setIsIndian}
+
       />
       <div className="flex flex-wrap justify-center">
         {filteredRecipes.map((recipe) => (
