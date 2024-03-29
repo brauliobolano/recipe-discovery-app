@@ -20,6 +20,12 @@ export default function Home({ initialRecipes } : HomeProps) {
   const [search, setSearch] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState(initialRecipes);
 
+  const [isGlutenFree, setIsGlutenFree] = useState(false);
+  const [isNonDairy, setIsNonDairy] = useState(false);
+  const [isVegan, setIsVegan] = useState(false);
+  const [isVegetarian, setIsVegetarian] = useState(false);
+  
+
   const runSearchFunction = () => {
     const results = initialRecipes.filter(recipe =>
       recipe.name.toLowerCase().includes(search.toLowerCase()) ||
