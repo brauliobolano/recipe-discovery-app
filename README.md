@@ -1,5 +1,17 @@
 ## Recipe Discovery App
 
+## Table of Contents
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [User Interface Features](#user-interface-features)
+- [Design Choices](#design-choices)
+- [Technical Implementation](#technical-implementation)
+- [Deployment](#deployment)
+- [Future Improvements](#future-improvements)
+- [Dependencies](#dependencies)
+- [Learn More](#learn-more)
+- [Deploy on Vercel](#deploy-on-vercel)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
