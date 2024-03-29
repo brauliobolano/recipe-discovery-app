@@ -1,4 +1,5 @@
 import Modal from '../Modal/Modal';
+import { useState } from 'react';
 
 const Card = ({ recipe }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
