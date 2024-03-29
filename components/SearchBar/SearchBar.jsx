@@ -14,7 +14,7 @@ const SearchBar = ({search, setSearch, runSearchFunction}) => {
 
 
   return (
-        <form onSubmit={handleSearchSubmit} class="max-w-md mx-auto">   
+        <form onSubmit={handleSearchSubmit} class="max-w-md mx-auto my-4">   
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
