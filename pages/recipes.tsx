@@ -2,10 +2,6 @@ import { useState } from 'react';
 import Card from '../components/Card/Card'
 import SearchBar from '../components/SearchBar/SearchBar';
 import { GetServerSideProps } from 'next';
-import dynamic from 'next/dynamic';
-import { DarkThemeToggle } from 'flowbite-react';
-
-const DarkThemeToggle = dynamic(() => import('flowbite-react').then(mod => mod.DarkThemeToggle), { ssr: false });
 
 interface Recipe {
   id: string;
@@ -37,8 +33,6 @@ export default function Home({ initialRecipes } : HomeProps) {
 
   return (
     <main>
-      <DarkThemeToggle />
-      <h1>Recipe Discovery</h1>
       <SearchBar search={search} setSearch={setSearch} runSearchFunction={runSearchFunction}/>
       <div className="flex flex-wrap justify-center">
         {filteredRecipes.map((recipe) => (
