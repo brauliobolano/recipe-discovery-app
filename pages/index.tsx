@@ -1,5 +1,4 @@
 // pages/index.tsx
-import Link from 'next/link';
 import NavigationBar from '../components/NavigationBar/NavigationBar';
 import Hero from '../components/Hero/Hero';
 import Footer from '../components/Footer/Footer';
