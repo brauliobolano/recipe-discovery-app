@@ -2,8 +2,10 @@ import { useState } from 'react';
 import Card from '../components/Card/Card'
 import SearchBar from '../components/SearchBar/SearchBar';
 import { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
 import { DarkThemeToggle } from 'flowbite-react';
 
+const DarkThemeToggle = dynamic(() => import('flowbite-react').then(mod => mod.DarkThemeToggle), { ssr: false });
 
 interface Recipe {
   id: string;
