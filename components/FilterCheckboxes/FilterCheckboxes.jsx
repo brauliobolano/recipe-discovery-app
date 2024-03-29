@@ -20,14 +20,14 @@ const FilterCheckboxes = (
         
     return (
         <div className="flex justify-center">
-            <div className="relative inline-block">
+                <div className="relative inline-block">
             <button onClick={() => setDietaryOpen(!isDietaryOpen)} id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
             Filter
             <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
         </button>
-        <div id="dropdownDefaultCheckbox" className={`z-10 w-34 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 ${isDietaryOpen ? 'block' : 'hidden'}`}>
+        <div id="dropdownDefaultCheckbox" className={`border-double border-4 border-blue-600 z-10 w-34 mt-2 bg-gray-300 divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 ${isDietaryOpen ? 'block' : 'hidden'} absolute left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 backdrop-blur`}>
             <h1 className='p-2 text-gray-700 dark:text-gray-200'>Dietary Preferences</h1>
             <ul class="flex flex-col md:flex-row p-3 md:space-x-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
                     <li>
@@ -57,7 +57,7 @@ const FilterCheckboxes = (
 
                 </ul>
             <h1 className='p-2 text-gray-700 dark:text-gray-200'>Cuisine</h1>
-            <ul class="flex flex-col md:flex-row p-3 md:space-x-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
+            <ul class="md:flex p-3  space-x-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
                     <li>
                         <div class="flex items-center">
                             <input id="cuban-checkbox" type="checkbox" checked={isCuban} onChange={() => setIsCuban(!isCuban)} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />

@@ -3,6 +3,7 @@ import Card from '../components/Card/Card'
 import SearchBar from '../components/SearchBar/SearchBar';
 import { GetServerSideProps } from 'next';
 import NavigationBar from '../components/NavigationBar/NavigationBar';
+import Footer from '../components/Footer/Footer';
 import FilterCheckboxes from '../components/FilterCheckboxes/FilterCheckboxes';
 interface Recipe {
   id: string;
@@ -80,13 +81,13 @@ export default function Home({ initialRecipes } : HomeProps) {
         setIsMexican={setIsMexican}
         isIndian={isIndian}
         setIsIndian={setIsIndian}
-
       />
       <div className="flex flex-wrap justify-center">
         {filteredRecipes.map((recipe) => (
           <Card key={recipe.id} recipe={recipe} />
         ))}
       </div>
+      <Footer />
     </main>
   );
 }

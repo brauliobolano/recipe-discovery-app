@@ -18,7 +18,7 @@ const Modal = ({ isOpen, closeModal, recipe }) => {
   return isOpen
     ? ReactDOM.createPortal(
       <div id="default-modal" className="fixed inset-0 flex items-start justify-center pt-12 z-50 bg-black bg-opacity-50 backdrop-blur overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 dark:scrollbar-thumb-gray-400 dark:scrollbar-track-gray-600">
-      <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-2xl m-4">
+      <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-2xl m-4 bg-gray-400 bg-opacity-70 backdrop-blur">
         <div className="p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
