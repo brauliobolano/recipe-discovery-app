@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Card from '../components/Card/Card'
 import SearchBar from '../components/SearchBar/SearchBar';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import NavigationBar from '../components/NavigationBar/NavigationBar';
 import Footer from '../components/Footer/Footer';
 import FilterCheckboxes from '../components/FilterCheckboxes/FilterCheckboxes';
@@ -12,11 +12,27 @@ interface Recipe {
   cuisine: string;
   instructions: string;
   dietaryPreferences: string[];
+  image: string;
 }
 interface HomeProps {
   initialRecipes: Recipe[];
 }
 
+export const getStaticProps: GetStaticProps = async (context) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/recipes`);
+  const initialRecipes = await res.json();
+
+  if (!initialRecipes) {
+    return {
+      props: { initialRecipes }, // will be passed to the page component as props
+    revalidate: 1, // re-generate the page every 1 second
+    }
+  }
+
+  return {
+    props: { initialRecipes }, // will be passed to the page component as props
+  }
+}
 
 export default function Home({ initialRecipes } : HomeProps) {
   const [search, setSearch] = useState('');
@@ -92,17 +108,3 @@ export default function Home({ initialRecipes } : HomeProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/recipes`);
-  const initialRecipes = await res.json();
-
-  if (!initialRecipes) {
-    return {
-      notFound: true,
-    }
-  }
-
-  return {
-    props: { initialRecipes }, // will be passed to the page component as props
-  }
-}
